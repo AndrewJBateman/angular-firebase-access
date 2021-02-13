@@ -1,0 +1,39 @@
+<!-- Top Navbar sticks to top of screen -->
+<mat-toolbar color="primary" sticky>
+  <button
+  mat-button
+  routerLink="/"
+  aria-label="home button"
+>
+  List
+</button>
+  <div>
+    <div *ngIf="auth.authState as user; else showLogin">
+      <button
+        mat-button
+        routerLink="/dashboard"
+        aria-label="edit blog post button"
+      >
+        Create
+      </button>
+      <button
+        mat-button
+        aria-label="Logout button"
+        (click)="auth.logout()"
+        aria-label="log-out button"
+      >
+        Logout
+      </button>
+    </div>
+    <ng-template #showLogin>
+      <button
+        mat-button
+        aria-label="Login button"
+        (click)="auth.login()"
+        aria-label="login button"
+      >
+        Login
+      </button>
+    </ng-template>
+  </div>
+</mat-toolbar>
