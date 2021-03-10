@@ -1,12 +1,6 @@
 <!-- Top Navbar sticks to top of screen -->
 <mat-toolbar color="primary" sticky>
-  <button
-  mat-button
-  routerLink="/"
-  aria-label="home button"
->
-  List
-</button>
+  <button mat-button routerLink="/" aria-label="home button">List</button>
   <div>
     <div *ngIf="auth.authState as user; else showLogin">
       <button

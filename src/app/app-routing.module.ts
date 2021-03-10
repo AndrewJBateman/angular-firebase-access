@@ -5,25 +5,24 @@ import { PostListComponent } from './components/posts/post-list/post-list.compon
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: PostListComponent,
   },
   {
-    path: "dashboard",
-    component: PostDashboardComponent
+    path: 'dashboard',
+    component: PostDashboardComponent,
   },
   {
-    path: ":id",
+    path: ':id',
     loadChildren: () =>
-      import("./components/posts/post-detail/post-detail.module").then(
+      import('./components/posts/post-detail/post-detail.module').then(
         (mod) => mod.PostDetailModule
       ),
   },
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
