@@ -34,7 +34,7 @@
 ## :signal_strength: Technologies
 
 * [Angular v12](https://angular.io/)
-* [Firebase v8](https://firebase.google.com) Cloud storage and authentication.
+* [Firebase v8.2.6](https://firebase.google.com) Cloud storage and authentication. Note: error caused by latest version of Firebase@8.6.4 so older v8.2.6 used.
 * [Firebase Tools v9](https://www.npmjs.com/package/firebase-tools) CLI used to manage a Firebase project
 * [Angular/fire v6](https://www.npmjs.com/package/@angular/fire) Angular library for Firebase
 
@@ -74,7 +74,7 @@
 
 ## :clipboard: Status & To-Do List
 
-* Status: Working. With a Google login it is possible to Create, Read, Update and Delete blog posts.
+* Status: Working. Updated may 201. With a Google login it is possible to Create, Read, Update and Delete blog posts.
 * To-Do: Use to update posts and images for website
 
 ## :clap: Inspiration
