@@ -1,12 +1,16 @@
 # :zap: Angular Firebase Access
 
-* Angular 11 app using Firebase tools to access a Google Cloud Firestore
+* Angular app using Firebase tools to access a Google Cloud Firestore
+* **Note:** to open web links in a new window use: _ctrl+click on link_
 
-*** Note: to open web links in a new window use: _ctrl+click on link_**
+![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/angular-firebase-access?style=plastic)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/AndrewJBateman/angular-firebase-access?style=plastic)
+![GitHub Repo stars](https://img.shields.io/github/stars/AndrewJBateman/angular-firebase-access?style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/AndrewJBateman/angular-firebase-access?style=plastic)
 
 ## :page_facing_up: Table of contents
 
-* [:zap: Angular Material Table](#zap-angular-material-table)
+* [:zap: Angular Firebase Access](#zap-angular-firebase-access)
   * [:page_facing_up: Table of contents](#page_facing_up-table-of-contents)
   * [:books: General info](#books-general-info)
   * [:camera: Screenshots](#camera-screenshots)
@@ -16,6 +20,7 @@
   * [:cool: Features](#cool-features)
   * [:clipboard: Status & To-Do List](#clipboard-status--to-do-list)
   * [:clap: Inspiration](#clap-inspiration)
+  * [:file_folder: License](#file_folder-license)
   * [:envelope: Contact](#envelope-contact)
 
 ## :books: General info
@@ -28,10 +33,10 @@
 
 ## :signal_strength: Technologies
 
-* [Angular v11](https://angular.io/)
+* [Angular v12](https://angular.io/)
 * [Firebase v8](https://firebase.google.com) Cloud storage and authentication.
 * [Firebase Tools v9](https://www.npmjs.com/package/firebase-tools) CLI used to manage a Firebase project
-* [AngularFire v6](https://www.npmjs.com/package/@angular/fire) Angular library for Firebase
+* [Angular/fire v6](https://www.npmjs.com/package/@angular/fire) Angular library for Firebase
 
 ## :floppy_disk: Setup
 
@@ -42,7 +47,7 @@
 
 ## :computer: Code Examples
 
-* functions from `post.service.ts` to get all posts and a specific post by id.  
+* functions from `post.service.ts` to get all posts and a specific post by id.
 
 ```typescript
   getPosts() {
@@ -69,13 +74,17 @@
 
 ## :clipboard: Status & To-Do List
 
-* Status: Working. With my Google login I can Create, Read, Update and Delete blog posts.
+* Status: Working. With a Google login it is possible to Create, Read, Update and Delete blog posts.
 * To-Do: Use to update posts and images for website
 
 ## :clap: Inspiration
 
 * [Blog post images from Unsplash](https://unsplash.com/)
 
+## :file_folder: License
+
+* This project is licensed under the terms of the MIT license.
+
 ## :envelope: Contact
 
-* Repo created by [ABateman](https://www.andrewbateman.org) - you are welcome to [send me a message](https://andrewbateman.org/contact)
+* Repo created by [ABateman](https://github.com/AndrewJBateman), email: gomezbateman@yahoo.com
