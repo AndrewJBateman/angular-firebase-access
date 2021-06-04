@@ -74,7 +74,7 @@
 
 ## :clipboard: Status & To-Do List
 
-* Status: Working. Updated may 201. With a Google login it is possible to Create, Read, Update and Delete blog posts.
+* Status: Working. Updated may 2021. With a Google login or other auth setup it is possible to Create, Read, Update and Delete blog posts.
 * To-Do: Use to update posts and images for website
 
 ## :clap: Inspiration
