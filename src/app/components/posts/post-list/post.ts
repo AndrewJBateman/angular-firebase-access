@@ -1,4 +1,6 @@
 export class Post {
+  author?: string;
+  authorId?: string;
   id?: string;
   imageby?: string;
   content: string;

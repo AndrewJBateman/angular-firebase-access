@@ -1,55 +1,57 @@
 import { Injectable } from "@angular/core";
-import {
-  AngularFirestore,
-  AngularFirestoreCollection,
-  AngularFirestoreDocument,
-} from "@angular/fire/firestore";
+import { Router } from "@angular/router";
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, query, getDocs } from "firebase/firestore/lite";
+
+import { environment } from "../../environments/environment";
+
 import { map } from "rxjs/operators";
 
 import { Post } from "../components/posts/post-list/post";
 
+const firebaseConfig = environment.firebase;
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 @Injectable()
 export class PostService {
-  postsCollection: AngularFirestoreCollection<Post>;
-  postDoc: AngularFirestoreDocument<Post>;
+  currentPost: Post;
 
-  constructor(private afs: AngularFirestore) {
+  constructor(private router: Router) {
     // afs.firestore.settings({ timestampsInSnapshots: true });
-    this.postsCollection = this.afs.collection("posts", (ref) =>
-      ref.orderBy("published", "desc")
-    );
+    // this.postsCollection = this.afs.collection("posts", (ref) =>
+    //   ref.orderBy("published", "desc")
+    // );
   }
 
-  getPosts() {
-    return this.postsCollection.snapshotChanges().pipe(
-      map((actions) => {
-        return actions.map((a) => {
-          const data = a.payload.doc.data() as Post;
-          const id = a.payload.doc.id;
-          return { id, ...data };
-        });
-      })
-    );
-  }
+  getPosts = async () => {
+    let postsArray = [];
+    let id = 0;
+    const postCollectionRef = collection(db, "posts");
+    const querySnapshot = await getDocs(query(postCollectionRef));
+    querySnapshot.forEach(doc => {
+      alert;
+      id++;
+      postsArray.push({ id, ...doc.data() });
+    });
+    return postsArray;
+  };
 
-  getPostData(id: string) {
-    this.postDoc = this.afs.doc<Post>(`posts/${id}`);
-    return this.postDoc.valueChanges();
-  }
+  getPost = async (post: Post) => {
+    this.currentPost = post;
+    this.router.navigate(["/post-detail"]);
+  };
 
   create(data: Post) {
-    this.postsCollection.add(data);
-  }
-
-  getPost(id: string) {
-    return this.afs.doc<Post>(`posts/${id}`);
+    // this.postsCollection.add(data);
   }
 
   delete(id: string) {
-    return this.getPost(id).delete();
+    // return this.getPost(id).delete();
   }
 
   update(id: string, formData) {
-    return this.getPost(id).update(formData);
+    //   return this.getPost(id).update(formData);
   }
 }

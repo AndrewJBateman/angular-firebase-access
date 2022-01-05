@@ -10,29 +10,17 @@ import { Post } from "../../posts/post-list/post";
   styleUrls: ["./post-detail.component.scss"],
 })
 export class PostDetailComponent implements OnInit {
+  currentPost: any;
   post: Post;
   editing = false;
   selectedCategory: string;
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    public auth: AuthService,
-    private postService: PostService
-  ) {}
+  constructor(private route: ActivatedRoute, private router: Router, public auth: AuthService, private postService: PostService) {}
 
   ngOnInit(): void {
-    this.getPost();
+    this.post = this.postService.currentPost;
   }
-
   isLoggedIn = this.auth.authState;
-
-  getPost(): any {
-    const id = this.route.snapshot.paramMap.get("id");
-    return this.postService
-      .getPostData(id)
-      .subscribe((data) => (this.post = data));
-  }
 
   updatePost(): any {
     const formData = {

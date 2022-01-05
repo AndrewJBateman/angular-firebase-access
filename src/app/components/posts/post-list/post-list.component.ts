@@ -12,17 +12,16 @@ import { PostService } from "../../../services/post.service";
 })
 export class PostListComponent implements OnInit {
   title = "Read my posts";
-
-  posts: Observable<Post[]>;
+  posts: Post[];
 
   constructor(
     private postService: PostService,
     private titleService: Title,
-    private metaTagService: Meta // public auth: AuthService
+    private metaTagService: Meta, // public auth: AuthService
   ) {}
 
-  ngOnInit(): void {
-    this.posts = this.postService.getPosts();
+  async ngOnInit(): Promise<any> {
+    this.posts = await this.postService.getPosts();
     this.titleService.setTitle(this.title);
     this.metaTagService.updateTag({
       name: "blog",
@@ -32,5 +31,9 @@ export class PostListComponent implements OnInit {
 
   trackByFn(index: number, post: Post): string {
     return post.id;
+  }
+
+  onSelectPost(post: Post) {
+    this.postService.getPost(post);
   }
 }
