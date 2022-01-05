@@ -13,7 +13,7 @@ const routes: Routes = [
     component: PostDashboardComponent,
   },
   {
-    path: ':id',
+    path: 'post-detail',
     loadChildren: () =>
       import('./components/posts/post-detail/post-detail.module').then(
         (mod) => mod.PostDetailModule
