@@ -27,13 +27,11 @@ export class PostService {
 
   getPosts = async () => {
     let postsArray = [];
-    let id = 0;
     const postCollectionRef = collection(db, "posts");
     const querySnapshot = await getDocs(query(postCollectionRef));
     querySnapshot.forEach(doc => {
       alert;
-      id++;
-      postsArray.push({ id, ...doc.data() });
+      postsArray.push({ id: doc.id, ...doc.data() });
     });
     return postsArray;
   };
