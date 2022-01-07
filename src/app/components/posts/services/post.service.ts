@@ -8,9 +8,11 @@ import {
   getDocs,
   doc,
   updateDoc,
-  addDoc,
-} from "firebase/firestore/lite";
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+  } from "firebase/firestore/lite";
+import {
+  AngularFirestore,
+  AngularFirestoreDocument,
+} from "@angular/fire/compat/firestore";
 
 import { environment } from "../../../../environments/environment";
 import { Post } from "../models/post";
@@ -23,37 +25,54 @@ const db = getFirestore(app);
 @Injectable()
 export class PostService {
   currentPost: Post;
+  postsArray = [];
 
-  constructor(private angularFirestore: AngularFirestore, private router: Router) {}
+  constructor(
+    private angularFirestore: AngularFirestore,
+    private router: Router,
+  ) {}
 
+  // get all posts from Firestore database as a snapshot Then
+  // add them to an array using the array push method then sort by date
   getPosts = async (): Promise<any> => {
-    let postsArray = [];
+    this.postsArray = [];
     const postCollectionRef = collection(db, "posts");
     const querySnapshot = await getDocs(query(postCollectionRef));
     querySnapshot.forEach(doc => {
       alert;
-      postsArray.push({ id: doc.id, ...doc.data() });
-      postsArray.sort((a, b) => b.published - a.published);
+      this.postsArray.push({ id: doc.id, ...doc.data() });
+      this.postsArray.sort((a, b) => b.published - a.published);
     });
-    return postsArray;
+    return this.postsArray;
   };
 
+  // with user-selected post, navigate to post detail page
   showFullPost = (post: Post): void => {
     this.currentPost = post;
     this.router.navigate(["/post-detail"]);
   };
 
-  create(post: Post):Promise<any> {
-    console.log('post to save: ', post);
-    return this.angularFirestore.collection("posts").add(post);
+  // add new post from form contents to firestore posts database
+  async create(post: Post): Promise<any> {
+    await this.angularFirestore.collection("posts").add(post);
+    console.log("this.postsArray: ", this.postsArray);
+    return this.router.navigate(["/"]);
   }
 
-  delete(id: string) {
-    // return this.getPost(id).delete();
+  // delete post from Firestore posts database using post id
+  async delete(id: string): Promise<any> {
+    await this.angularFirestore
+      .collection("posts")
+      .doc(id)
+      .delete()
+      .then(() => {
+        console.log("post deleted");
+        return this.router.navigate(["/"]);
+      });
   }
 
+  // update post in Firestore databse using id
   async updateDBPost(id: string, formData: any) {
-    console.log("formData: ", formData);
     const postToUpdate = doc(db, "posts", id);
     await updateDoc(postToUpdate, formData);
   }

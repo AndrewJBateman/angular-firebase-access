@@ -37,8 +37,8 @@ export class PostDashboardComponent {
     const postData = {
       content: this.content,
       image: this.image || null,
-      imageby: this.imageby,
-      imageLink: this.imageLink,
+      imageby: this.imageby || null,
+      imageLink: this.imageLink || null,
       published: new Date(),
       title: this.title,
       subtitle: this.subtitle,

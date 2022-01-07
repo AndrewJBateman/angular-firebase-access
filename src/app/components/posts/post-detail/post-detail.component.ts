@@ -35,7 +35,7 @@ export class PostDetailComponent implements OnInit {
   }
 
   delete(): void {
-    const id = this.route.snapshot.paramMap.get("id");
+    const id = this.post.id;
     this.postService.delete(id);
     this.router.navigate(["/"]);
   }
