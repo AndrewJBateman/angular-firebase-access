@@ -2,8 +2,8 @@ import { Observable } from "rxjs";
 import { Component, OnInit } from "@angular/core";
 import { Meta, Title } from "@angular/platform-browser";
 
-import { Post } from "./post";
-import { PostService } from "../../../services/post.service";
+import { Post } from "../models/post";
+import { PostService } from "../services/post.service";
 
 @Component({
   selector: "app-post-list",
@@ -17,7 +17,7 @@ export class PostListComponent implements OnInit {
   constructor(
     private postService: PostService,
     private titleService: Title,
-    private metaTagService: Meta, // public auth: AuthService
+    private metaTagService: Meta,
   ) {}
 
   async ngOnInit(): Promise<any> {
@@ -35,6 +35,6 @@ export class PostListComponent implements OnInit {
   }
 
   onSelectPost(post: Post) {
-    this.postService.getPost(post);
+    this.postService.showFullPost(post);
   }
 }

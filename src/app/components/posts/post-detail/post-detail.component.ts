@@ -1,8 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
-import { AuthService } from "../../../services/auth.service";
-import { PostService } from "../../../services/post.service";
-import { Post } from "../../posts/post-list/post";
+import { PostService } from "../services/post.service";
+import { Post } from "../models/post";
 
 @Component({
   selector: "app-post-detail",
@@ -15,13 +14,11 @@ export class PostDetailComponent implements OnInit {
   editing = false;
   selectedCategory: string;
 
-  constructor(private route: ActivatedRoute, private router: Router, public auth: AuthService, private postService: PostService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private postService: PostService) {}
 
   ngOnInit(): void {
     this.post = this.postService.currentPost;
   }
-  isLoggedIn = this.auth.authState;
-
   updatePost(): any {
     const formData = {
       title: this.post.title,
@@ -32,8 +29,8 @@ export class PostDetailComponent implements OnInit {
       content: this.post.content,
       published: new Date(),
     };
-    const id = this.route.snapshot.paramMap.get("id");
-    this.postService.update(id, formData);
+        const id = this.post.id;
+    this.postService.updateDBPost(id, formData);
     this.editing = false;
   }
 

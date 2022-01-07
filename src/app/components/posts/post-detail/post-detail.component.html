@@ -1,6 +1,5 @@
 <head>
-  <meta name="description"
-    content="Post detail page shows the full text of the post. The author can also log in to edit or delete the post" />
+  <meta name="description" content="Post detail page shows the full text of the post. The author can also log in to edit or delete the post" />
 </head>
 
 <ng-container *ngIf="post">
@@ -38,12 +37,8 @@
       </mat-form-field>
       <br />
       <div class="bottom-button-row">
-        <button mat-flat-button color="accent" (click)="updatePost()" aria-label="Update post">
-          Save
-        </button>
-        <button mat-flat-button color="primary" (click)="editing = false" *ngIf="editing" aria-label="Cancel changes">
-          Cancel
-        </button>
+        <button mat-flat-button color="accent" (click)="updatePost()" aria-label="Update post">Save</button>
+        <button mat-flat-button color="primary" (click)="editing = false" *ngIf="editing" aria-label="Cancel changes">Cancel</button>
       </div>
     </mat-card>
   </div>
@@ -73,7 +68,7 @@
           <div fxFlex></div>
           <p class="credit-date-text">
             <app-svg-folder></app-svg-folder>
-             {{ post.category }}
+            {{ post.category }}
           </p>
           <div fxFlex></div>
           <p class="credit-date-text">
@@ -85,20 +80,14 @@
       <hr class="horiz-line" />
 
       <mat-card-actions align="left">
-        <button mat-raised-button (click)="returnToList()" class="post-button-back" aria-label="Back button">
-          Back
-        </button>
+        <button mat-raised-button (click)="returnToList()" class="post-button-back" aria-label="Back button">Back</button>
         <div fxFlex></div>
-        <div [hidden]="!isLoggedIn">
-          <a mat-raised-button (click)="editing = true" class="post-button-edit" aria-label="Go back to list of posts">
-            Edit
-          </a>
+        <div>
+          <a mat-raised-button (click)="editing = true" class="post-button-edit" aria-label="Go back to list of posts"> Edit </a>
         </div>
         <div fxFlex></div>
-        <div [hidden]="!isLoggedIn">
-          <a mat-raised-button (click)="delete()" class="post-button-delete" aria-label="Delete post">
-            Delete
-          </a>
+        <div>
+          <a mat-raised-button (click)="delete()" class="post-button-delete" aria-label="Delete post"> Delete </a>
         </div>
       </mat-card-actions>
     </mat-card>

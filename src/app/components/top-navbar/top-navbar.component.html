@@ -2,7 +2,8 @@
 <mat-toolbar color="primary" sticky>
   <button mat-button routerLink="/" aria-label="home button">List</button>
   <div>
-    <div *ngIf="auth.authState as user; else showLogin">
+    <!--<div *ngIf="auth.authState as user; else showLogin">-->
+      <div >
       <button
         mat-button
         routerLink="/dashboard"
@@ -10,24 +11,24 @@
       >
         Create
       </button>
-      <button
+      <!--<button
         mat-button
         aria-label="Logout button"
         (click)="auth.logout()"
         aria-label="log-out button"
       >
         Logout
-      </button>
+      </button>-->
     </div>
     <ng-template #showLogin>
-      <button
+      <!--<button
         mat-button
         aria-label="Login button"
         (click)="auth.login()"
         aria-label="login button"
       >
         Login
-      </button>
+      </button>-->
     </ng-template>
   </div>
 </mat-toolbar>

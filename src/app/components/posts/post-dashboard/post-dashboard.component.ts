@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component } from "@angular/core";
+import { Component, Inject } from "@angular/core";
 import { Observable } from "rxjs";
 import { finalize } from "rxjs/operators";
 
-import { PostService } from "../../../services/post.service";
-import { AngularFireStorage } from "@angular/fire/storage";
+import { PostService } from "../services/post.service";
+import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/compat/firestore";
 import { Router } from "@angular/router";
 
 @Component({
@@ -29,8 +29,8 @@ export class PostDashboardComponent {
 
   constructor(
     private postService: PostService,
-    private storage: AngularFireStorage,
-    private router: Router
+    private storage: AngularFirestore,
+    private router: Router,
   ) {}
 
   createPost(): void {
@@ -58,7 +58,7 @@ export class PostDashboardComponent {
   }
 
   returnToList() {
-    this.router.navigate(['/']);
+    this.router.navigate(["/"]);
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -69,19 +69,19 @@ export class PostDashboardComponent {
     if (file.type.split("/")[0] !== "image") {
       return alert("only image files allowed");
     } else {
-      const task = this.storage.upload(path, file);
-      const ref = this.storage.ref(path);
-      this.uploadPercent = task.percentageChanges();
-      task
-        .snapshotChanges()
-        .pipe(
-          finalize(() => {
-            this.downloadURL = ref.getDownloadURL();
-            this.downloadURL.subscribe((url) => (this.image = url));
-          })
-        )
-        .subscribe();
-      console.log("image uploaded");
+      // const task = this.storage.upload(path, file);
+      // const ref = this.storage.ref(path);
+      // this.uploadPercent = task.percentageChanges();
+      // task
+      //   .snapshotChanges()
+      //   .pipe(
+      //     finalize(() => {
+      //       this.downloadURL = ref.getDownloadURL();
+      //       this.downloadURL.subscribe(url => (this.image = url));
+      //     }),
+      //   )
+      //   .subscribe();
+      // console.log("image uploaded");
     }
   }
 }

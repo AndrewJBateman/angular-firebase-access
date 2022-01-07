@@ -3,10 +3,10 @@ import {
   AngularFirestore,
   AngularFirestoreCollection,
   AngularFirestoreDocument,
-} from "@angular/fire/firestore";
+} from "@angular/fire/compat/firestore";
 import { map } from "rxjs/operators";
 
-import { Post } from "../components/posts/post-list/post";
+import { Post } from "../models/post";
 
 @Injectable()
 export class PostService {
