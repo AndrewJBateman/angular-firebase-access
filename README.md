@@ -33,11 +33,11 @@
 
 ## :signal_strength: Technologies
 
-* [Angular v12](https://angular.io/)
-* [Firebase v8](https://firebase.google.com) Cloud storage and authentication.
+* [Angular v13](https://angular.io/)
+* [Firebase v9](https://firebase.google.com) Cloud storage and authentication.
 * [Firebase Tools v9](https://www.npmjs.com/package/firebase-tools) CLI used to manage a Firebase project
-* [Angular/fire v6](https://www.npmjs.com/package/@angular/fire) Angular library for Firebase
-* [Rxjs](https://rxjs.dev/api) Reactive Extensions Library for JavaScript
+* [Angular/fire v7](https://www.npmjs.com/package/@angular/fire) Angular library for Firebase
+* [RxJS v7](https://rxjs.dev/api) Reactive Extensions Library for JavaScript
 
 ## :floppy_disk: Setup
 
@@ -48,25 +48,26 @@
 
 ## :computer: Code Examples
 
-* functions from `post.service.ts` to get all posts and a specific post by id.
+* functions from `post.service.ts` to get all posts and a selected post.
 
 ```typescript
-  getPosts() {
-    return this.postsCollection.snapshotChanges().pipe(
-      map((actions) => {
-        return actions.map((a) => {
-          const data = a.payload.doc.data() as Post;
-          const id = a.payload.doc.id;
-          return { id, ...data };
-        });
-      })
-    );
-  }
+getPosts = async (): Promise<any> => {
+    let postsArray = [];
+    const postCollectionRef = collection(db, "posts");
+    const querySnapshot = await getDocs(query(postCollectionRef));
+    querySnapshot.forEach(doc => {
+      alert;
+      postsArray.push({ id: doc.id, ...doc.data() });
+      postsArray.sort((a, b) => b.published - a.published);
+    });
+    return postsArray;
+  };
 
-  getPostData(id: string) {
-    this.postDoc = this.afs.doc<Post>(`posts/${id}`);
-    return this.postDoc.valueChanges();
-  }
+  showFullPost = (post: Post): void => {
+    this.currentPost = post;
+    this.router.navigate(["/post-detail"]);
+  };
+  
 ```
 
 ## :cool: Features
