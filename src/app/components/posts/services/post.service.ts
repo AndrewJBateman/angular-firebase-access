@@ -8,7 +8,7 @@ import {
   getDocs,
   doc,
   updateDoc,
-  } from "firebase/firestore/lite";
+} from "firebase/firestore/lite";
 import {
   AngularFirestore,
   AngularFirestoreDocument,
@@ -55,25 +55,31 @@ export class PostService {
   // add new post from form contents to firestore posts database
   async create(post: Post): Promise<any> {
     await this.angularFirestore.collection("posts").add(post);
-    console.log("this.postsArray: ", this.postsArray);
-    return this.router.navigate(["/"]);
+    return this.router.navigate(["/"]).then(() => {
+      window.location.reload();
+    });
   }
 
   // delete post from Firestore posts database using post id
   async delete(id: string): Promise<any> {
-    await this.angularFirestore
+    return await this.angularFirestore
       .collection("posts")
       .doc(id)
       .delete()
       .then(() => {
-        console.log("post deleted");
-        return this.router.navigate(["/"]);
+        this.router.navigate(["/"]).then(() => {
+          window.location.reload();
+        });
       });
   }
 
   // update post in Firestore databse using id
   async updateDBPost(id: string, formData: any) {
     const postToUpdate = doc(db, "posts", id);
-    await updateDoc(postToUpdate, formData);
+    await updateDoc(postToUpdate, formData).then(() => {
+      this.router.navigate(["/"]).then(() => {
+        window.location.reload();
+      });
+    });
   }
 }

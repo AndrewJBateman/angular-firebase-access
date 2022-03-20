@@ -1,28 +1,32 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { PostDashboardComponent } from './components/posts/post-dashboard/post-dashboard.component';
-import { PostListComponent } from './components/posts/post-list/post-list.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { PostDashboardComponent } from "./components/posts/post-dashboard/post-dashboard.component";
+import { PostListComponent } from "./components/posts/post-list/post-list.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: PostListComponent,
   },
   {
-    path: 'dashboard',
+    path: "dashboard",
     component: PostDashboardComponent,
   },
   {
-    path: 'post-detail',
+    path: "post-detail",
     loadChildren: () =>
-      import('./components/posts/post-detail/post-detail.module').then(
-        (mod) => mod.PostDetailModule
+      import("./components/posts/post-detail/post-detail.module").then(
+        mod => mod.PostDetailModule,
       ),
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      onSameUrlNavigation: "reload",
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
