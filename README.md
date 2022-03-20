@@ -1,6 +1,7 @@
 # :zap: Angular Firebase Access
 
 * Angular app using Firebase tools to access a Google Cloud Firestore
+* With a Google login or other auth setup it is possible to Create, Read, Update and Delete blog posts.
 * **Note:** to open web links in a new window use: _ctrl+click on link_
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/angular-firebase-access?style=plastic)
@@ -72,11 +73,11 @@ getPosts = async (): Promise<any> => {
 
 ## :cool: Features
 
-* Html template uses the [Angular async pipe](https://angular.io/api/common/AsyncPipe) to subscribe to the posts Observable and to unsubscribe automatically in the onDestroy lifecycle, avoiding memory leaks.
+* HTML template uses the [Angular async pipe](https://angular.io/api/common/AsyncPipe) to subscribe to the posts Observable and to unsubscribe automatically in the onDestroy lifecycle, avoiding memory leaks.
 
 ## :clipboard: Status & To-Do List
 
-* Status: Working. With a Google login or other auth setup it is possible to Create, Read, Update and Delete blog posts.
+* Status: Working.
 * To-Do: Use to update posts and images for website
 
 ## :clap: Inspiration
