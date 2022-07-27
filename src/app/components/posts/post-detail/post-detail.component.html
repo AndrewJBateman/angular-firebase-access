@@ -46,7 +46,6 @@
   <!--post detail page visible when NOT editing -->
   <div [hidden]="editing">
     <mat-card class="mat-elevation-z1">
-      <img mat-card-image src="{{ post.image }}" alt="{{ post.title }}" />
 
       <mat-card-header>
         <div mat-card-avatar class="header-image" alt="photo of Andrew Bateman"></div>
@@ -61,9 +60,9 @@
       <mat-card-content>
         <p class="post-content">{{ post.content }}</p>
         <span>
-          <a class="credit-date-text" href="{{ post.imageLink }}" target="_blank" rel="noreferrer">
+          <a class="credit-date-text">
             <app-svg-camera></app-svg-camera>
-            {{ post.imageby }}
+            <!-- {{ post.imageby }} -->unused
           </a>
           <div fxFlex></div>
           <p class="credit-date-text">
