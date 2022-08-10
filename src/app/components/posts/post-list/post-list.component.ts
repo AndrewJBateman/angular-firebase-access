@@ -11,7 +11,7 @@ import { PostService } from "../services/post.service";
   styleUrls: ["./post-list.component.scss"],
 })
 export class PostListComponent implements OnInit {
-  title = "Read my posts";
+  title = "Posts";
   posts: Post[];
 
   constructor(

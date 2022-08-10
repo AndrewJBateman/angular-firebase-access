@@ -1,34 +1,6 @@
 <section>
   <mat-panel-title> Create a Post </mat-panel-title>
-
-  <input type="file" name="file" id="file" (change)="uploadImage($event)" />
-  <div [hidden]="!uploadPercent">
-    <mat-progress-bar
-      mode="determinate"
-      value="{{ uploadPercent | async }}"
-    ></mat-progress-bar>
-  </div>
-  <div [hidden]="!image">
-    <img [src]="image || '//:0'" />
-  </div>
-
-  <mat-form-field>
-    <input
-      matInput
-      placeholder="Image Credit"
-      [(ngModel)]="imageby"
-      name="imageby"
-    />
-  </mat-form-field>
   <br />
-  <mat-form-field>
-    <input
-      matInput
-      placeholder="Image Link"
-      [(ngModel)]="imageLink"
-      name="imageLink"
-    />
-  </mat-form-field>
   <br />
   <mat-form-field>
     <input matInput placeholder="Post Title" [(ngModel)]="title" name="title" />
@@ -40,6 +12,15 @@
       placeholder="Post Subtitle"
       [(ngModel)]="subtitle"
       name="subtitle"
+    />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Image Keywords"
+      [(ngModel)]="image"
+      name="image"
     />
   </mat-form-field>
   <br />
@@ -65,7 +46,7 @@
   <button
     mat-raised-button
     (click)="createPost()"
-    [disabled]="!title || !content || !category"
+    [disabled]="!title || !subtitle || !image || !category || !content"
     color="accent"
   >
     {{ buttonText }}

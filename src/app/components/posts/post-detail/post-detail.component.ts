@@ -20,16 +20,17 @@ export class PostDetailComponent implements OnInit {
     this.post = this.postService.currentPost;
   }
   updatePost(): any {
+    console.log('updatePost function started')
     const formData = {
       title: this.post.title,
       subtitle: this.post.subtitle,
-      imageby: this.post.imageby,
-      imageLink: this.post.imageLink,
+      image: this.post.image,
       category: this.post.category,
       content: this.post.content,
       published: new Date(),
     };
-        const id = this.post.id;
+    const id = this.post.id;
+    console.log('form data: ', id, formData)
     this.postService.updateDBPost(id, formData);
     this.editing = false;
   }

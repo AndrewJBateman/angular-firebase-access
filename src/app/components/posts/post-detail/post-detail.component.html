@@ -1,5 +1,8 @@
 <head>
-  <meta name="description" content="Post detail page shows the full text of the post. The author can also log in to edit or delete the post" />
+  <meta
+    name="description"
+    content="Post detail page shows the full text of the post. The author can also log in to edit or delete the post"
+  />
 </head>
 
 <ng-container *ngIf="post">
@@ -8,24 +11,42 @@
     <mat-card>
       <h1 color="primary">Edit Post</h1>
       <mat-form-field>
-        <input matInput placeholder="Post title" [(ngModel)]="post.title" name="title" />
+        <input
+          matInput
+          placeholder="Post title"
+          [(ngModel)]="post.title"
+          name="title"
+        />
       </mat-form-field>
       <br />
       <mat-form-field>
-        <input matInput placeholder="Post Subtitle" [(ngModel)]="post.subtitle" name="subtitle" />
+        <input
+          matInput
+          placeholder="Post Subtitle"
+          [(ngModel)]="post.subtitle"
+          name="subtitle"
+        />
       </mat-form-field>
       <br />
       <mat-form-field>
-        <input matInput placeholder="Image Credit" [(ngModel)]="post.imageby" name="imageby" />
+        <input
+          matInput
+          placeholder="Image Keyword"
+          [(ngModel)]="post.image"
+          name="image"
+        />
       </mat-form-field>
       <br />
-      <mat-form-field>
-        <input matInput placeholder="Image Link" [(ngModel)]="post.imageLink" name="imageLink" />
-      </mat-form-field>
       <br />
       <mat-form-field>
-        <mat-label>Select Category ({{ post.category }} currently selected)</mat-label>
-        <mat-select [(ngModel)]="post.category" [(value)]="selectedCategory" name="category">
+        <mat-label
+          >Select Category ({{ post.category }} currently selected)</mat-label
+        >
+        <mat-select
+          [(ngModel)]="post.category"
+          [(value)]="selectedCategory"
+          name="category"
+        >
           <mat-option value="Dev">Dev (Programming Development)</mat-option>
           <mat-option value="IT">IT (Information Technology)</mat-option>
           <mat-option value="Eng">Eng (Engineering)</mat-option>
@@ -33,12 +54,33 @@
       </mat-form-field>
       <br />
       <mat-form-field>
-        <textarea matInput placeholder="Post content" [(ngModel)]="post.content" name="content" rows="30"></textarea>
+        <textarea
+          matInput
+          placeholder="Post content"
+          [(ngModel)]="post.content"
+          name="content"
+          rows="30"
+        ></textarea>
       </mat-form-field>
       <br />
       <div class="bottom-button-row">
-        <button mat-flat-button color="accent" (click)="updatePost()" aria-label="Update post">Save</button>
-        <button mat-flat-button color="primary" (click)="editing = false" *ngIf="editing" aria-label="Cancel changes">Cancel</button>
+        <button
+          mat-flat-button
+          color="accent"
+          (click)="updatePost()"
+          aria-label="Update post"
+        >
+          Save
+        </button>
+        <button
+          mat-flat-button
+          color="primary"
+          (click)="editing = false"
+          *ngIf="editing"
+          aria-label="Cancel changes"
+        >
+          Cancel
+        </button>
       </div>
     </mat-card>
   </div>
@@ -46,9 +88,12 @@
   <!--post detail page visible when NOT editing -->
   <div [hidden]="editing">
     <mat-card class="mat-elevation-z1">
-
       <mat-card-header>
-        <div mat-card-avatar class="header-image" alt="photo of Andrew Bateman"></div>
+        <div
+          mat-card-avatar
+          class="header-image"
+          alt="photo of Andrew Bateman"
+        ></div>
         <mat-card-title class="post-title">
           {{ post.title }}
         </mat-card-title>
@@ -79,14 +124,35 @@
       <hr class="horiz-line" />
 
       <mat-card-actions align="left">
-        <button mat-raised-button (click)="returnToList()" class="post-button-back" aria-label="Back button">Back</button>
+        <button
+          mat-raised-button
+          (click)="returnToList()"
+          class="post-button-back"
+          aria-label="Back button"
+        >
+          Back
+        </button>
         <div fxFlex></div>
         <div>
-          <a mat-raised-button (click)="editing = true" class="post-button-edit" aria-label="Go back to list of posts"> Edit </a>
+          <a
+            mat-raised-button
+            (click)="editing = true"
+            class="post-button-edit"
+            aria-label="Go back to list of posts"
+          >
+            Edit
+          </a>
         </div>
         <div fxFlex></div>
         <div>
-          <a mat-raised-button (click)="delete()" class="post-button-delete" aria-label="Delete post"> Delete </a>
+          <a
+            mat-raised-button
+            (click)="delete()"
+            class="post-button-delete"
+            aria-label="Delete post"
+          >
+            Delete
+          </a>
         </div>
       </mat-card-actions>
     </mat-card>
