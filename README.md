@@ -34,7 +34,7 @@
 
 ## :signal_strength: Technologies
 
-* [Angular v134](https://angular.io/)
+* [Angular v14](https://angular.io/)
 * [Firebase v9](https://firebase.google.com) Cloud storage and authentication.
 * [Firebase Tools v9](https://www.npmjs.com/package/firebase-tools) CLI used to manage a Firebase project
 * [Angular/fire v7](https://www.npmjs.com/package/@angular/fire) Angular library for Firebase
@@ -82,7 +82,7 @@ getPosts = async (): Promise<any> => {
 
 ## :clap: Inspiration
 
-* [Blog post images from Unsplash](https://unsplash.com/)
+* [Blog post images from Unsplash](https://unsplash.com/) - only key words used now
 
 ## :file_folder: License
 
