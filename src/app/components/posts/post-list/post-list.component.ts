@@ -22,7 +22,6 @@ export class PostListComponent implements OnInit {
 
   async ngOnInit(): Promise<any> {
     this.posts = await this.postService.getPosts();
-    console.log('posts: ', this.posts);
     this.titleService.setTitle(this.title);
     this.metaTagService.updateTag({
       name: "blog",
