@@ -8,7 +8,7 @@
 <ng-container *ngIf="post">
   <!--post editing page visible when editing -->
   <div [hidden]="!editing">
-    <mat-card>
+    <mat-card appearance="outlined">
       <h1 color="primary">Edit Post</h1>
       <mat-form-field>
         <input
@@ -87,7 +87,7 @@
 
   <!--post detail page visible when NOT editing -->
   <div [hidden]="editing">
-    <mat-card class="mat-elevation-z1">
+    <mat-card appearance="outlined" class="mat-elevation-z1">
       <mat-card-header>
         <div
           mat-card-avatar

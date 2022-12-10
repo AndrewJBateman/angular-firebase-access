@@ -1,21 +1,7 @@
-.top-nav-link {
-  color: white;
-  padding: 0 16px;
-}
 
-.top-link-social {
-  padding: 0 16px;
-  color: #eaecf5;
-  font-size: 14px !important;
-  text-decoration: underline;
-  text-decoration-color: #fff;
-}
 
-.top-link-active {
-  color: rgb(173, 211, 255);
-}
 
-.mat-button {
+.mat-mdc-button {
   outline: none !important;
 
   &:focus {
