@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 import { PostDetailRoutingModule } from "./post-detail-routing.module";
@@ -31,5 +31,6 @@ import { MatSelectModule } from "@angular/material/select";
     SvgTimerModule,
   ],
   exports: [MatFormFieldModule, MatInputModule, PostDetailComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PostDetailModule {}
