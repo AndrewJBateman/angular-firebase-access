@@ -34,7 +34,7 @@
 
 ## :signal_strength: Technologies
 
-* [Angular v15](https://angular.io/)
+* [Angular v16](https://angular.io/)
 * [Firebase v9](https://firebase.google.com) Cloud storage and authentication.
 * [Firebase Tools v9](https://www.npmjs.com/package/firebase-tools) CLI used to manage a Firebase project
 * [Angular/fire v7](https://www.npmjs.com/package/@angular/fire) Angular library for Firebase
@@ -90,4 +90,4 @@ getPosts = async (): Promise<any> => {
 
 ## :envelope: Contact
 
-* Repo created by [ABateman](https://github.com/AndrewJBateman), email: gomezbateman@yahoo.com
+* Repo created by [ABateman](https://github.com/AndrewJBateman), email: `gomezbateman@yahoo.com`
