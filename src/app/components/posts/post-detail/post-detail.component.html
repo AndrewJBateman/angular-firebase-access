@@ -107,14 +107,13 @@
         <span>
           <a class="credit-date-text">
             <app-svg-camera></app-svg-camera>
-            {{ post.image }} <!--text only-->
+            {{ post.image }}
+            <!--text only-->
           </a>
-          <div fxFlex></div>
           <p class="credit-date-text">
             <app-svg-folder></app-svg-folder>
             {{ post.category }}
           </p>
-          <div fxFlex></div>
           <p class="credit-date-text">
             <app-svg-timer></app-svg-timer>
             {{ post.published.toDate() | dateConvert }}
@@ -132,7 +131,6 @@
         >
           Back
         </button>
-        <div fxFlex></div>
         <div>
           <a
             mat-raised-button
@@ -143,7 +141,6 @@
             Edit
           </a>
         </div>
-        <div fxFlex></div>
         <div>
           <a
             mat-raised-button
