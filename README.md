@@ -26,7 +26,7 @@
 
 ## :books: General info
 
-* Includes Firebase authentication to access posts database using a Google account but the login method can be changed in `services/auth.service.ts`
+* Allows access to create, read, update & delete Firebase posts
 
 ## :camera: Screenshots
 
@@ -78,7 +78,7 @@ getPosts = async (): Promise<any> => {
 ## :clipboard: Status & To-Do List
 
 * Status: Working
-* To-Do: @angular/flex-layout is deprecated - Replace fxFlex with CSS. Use to update posts and image key words for website
+* To-Do: Add tabs for posts categories
 
 ## :clap: Inspiration
 
