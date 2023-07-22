@@ -8,7 +8,7 @@
 <ng-container *ngIf="post">
   <!--post editing page visible when editing -->
   <div [hidden]="!editing">
-    <mat-card appearance="outlined">
+    <mat-card appearance="outlined" class="post-detail-card">
       <h1 color="primary">Edit Post</h1>
       <mat-form-field>
         <input
@@ -87,8 +87,8 @@
 
   <!--post detail page visible when NOT editing -->
   <div [hidden]="editing">
-    <mat-card appearance="outlined" class="mat-elevation-z1">
-      <mat-card-header>
+    <mat-card appearance="outlined" class="mat-elevation-z1 post-detail-card">
+      <mat-card-header class="detail-card-header">
         <div
           mat-card-avatar
           class="header-image"
@@ -122,7 +122,7 @@
       </mat-card-content>
       <hr class="horiz-line" />
 
-      <mat-card-actions align="left">
+      <mat-card-actions class="detail-card-actions" align="left">
         <button
           mat-raised-button
           (click)="returnToList()"

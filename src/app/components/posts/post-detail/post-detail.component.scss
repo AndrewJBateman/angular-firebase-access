@@ -1,66 +1,63 @@
 // @import "../../../theme.scss";
 
-/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version.*/
-mat-card {
+.post-detail-card {
   margin: 0 auto;
   max-width: 800px;
   padding: 16px 16px 20px 16px;
-}
 
-mat-form-field {
-  width: 100%;
-}
+  mat-form-field {
+    width: 100%;
+  }
 
-/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version.*/
-mat-card-actions {
-  margin: auto;
-}
+  .detail-card-actions {
+    margin: auto;
+  }
 
-.credit-date-text {
-  font-size: 12px;
-  padding: 0;
-  margin: 0;
-}
+  .credit-date-text {
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+  }
 
-/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version.*/
-mat-card-header {
-  margin: 0 !important;
-  padding: 0;
-  font-size: 18px !important;
-}
+  .detail-card-header {
+    margin: 0 !important;
+    padding: 0;
+    font-size: 18px !important;
+  }
 
-.bottom-button-row button {
-  margin-right: 16px;
-}
+  .bottom-button-row button {
+    margin-right: 16px;
+  }
 
-.post-title {
-  font-size: 20px !important;
-  margin: 0 0 4px !important;
-}
+  .post-title {
+    font-size: 20px !important;
+    margin: 0 0 4px !important;
+  }
 
-.post-subtitle {
-  font-size: 16px !important;
-  margin: 0 !important;
-}
-.post-content {
-  margin: 16px 0 !important;
-  white-space: pre-wrap;
-  font-family: "Roboto", "Helvetica Neue", sans-serif;
-}
+  .post-subtitle {
+    font-size: 16px !important;
+    margin: 0 !important;
+  }
+  .post-content {
+    margin: 16px 0 !important;
+    white-space: pre-wrap;
+    font-family: "Roboto", "Helvetica Neue", sans-serif;
+  }
 
-.header-image {
-  background-image: url("/assets/imgs/me-outside.jpg");
-  background-size: cover;
-}
+  .header-image {
+    background-image: url("/assets/imgs/me-outside.jpg");
+    background-size: cover;
+  }
 
-.post-button-back {
-  background-color: #0D47A1;
-  color: white;
-}
-.post-button-delete {
-  color: orangered;
-}
+  .post-button-back {
+    background-color: #0d47a1;
+    color: white;
+  }
+  .post-button-delete {
+    color: orangered;
+  }
 
-.post-button-edit {
-  color: #0d47a1;
+  .post-button-edit {
+    color: #0d47a1;
+  }
 }
