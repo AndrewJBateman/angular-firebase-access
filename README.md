@@ -35,7 +35,7 @@
 ## :signal_strength: Technologies
 
 * [Angular v16](https://angular.io/)
-* [Firebase v9](https://firebase.google.com) Cloud storage and authentication.
+* [Firebase v9](https://firebase.google.com) Cloud storage and authentication. Do not update to v10.
 * [Firebase Tools v9](https://www.npmjs.com/package/firebase-tools) CLI used to manage a Firebase project
 * [Angular/fire v7](https://www.npmjs.com/package/@angular/fire) Angular library for Firebase
 * [RxJS v7](https://rxjs.dev/api) Reactive Extensions Library for JavaScript
