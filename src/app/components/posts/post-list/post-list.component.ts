@@ -4,11 +4,29 @@ import { Meta, Title } from "@angular/platform-browser";
 
 import { Post } from "../models/post";
 import { PostService } from "../services/post.service";
+import { ReadTimePipe } from "../../../pipes/read-time.pipe";
+import { DateConvertPipe } from "../../../pipes/date-convert.pipe";
+import { SlicePipe } from "@angular/common";
+import { SvgTimerComponent } from "../../svg-timer/svg-timer.component";
+import { SvgFolderComponent } from "../../svg-folder/svg-folder.component";
+import { SvgCalenderComponent } from "../../svg-calender/svg-calender.component";
+import { MatCard, MatCardContent } from "@angular/material/card";
 
 @Component({
-  selector: "app-post-list",
-  templateUrl: "./post-list.component.html",
-  styleUrls: ["./post-list.component.scss"],
+    selector: "app-post-list",
+    templateUrl: "./post-list.component.html",
+    styleUrls: ["./post-list.component.scss"],
+    standalone: true,
+    imports: [
+        MatCard,
+        MatCardContent,
+        SvgCalenderComponent,
+        SvgFolderComponent,
+        SvgTimerComponent,
+        SlicePipe,
+        DateConvertPipe,
+        ReadTimePipe,
+    ],
 })
 export class PostListComponent implements OnInit {
   title = "Posts";

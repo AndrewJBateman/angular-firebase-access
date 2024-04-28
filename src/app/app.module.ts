@@ -20,25 +20,23 @@ import { PostService } from "./components/posts/services/post.service";
 import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PostListComponent,
-    PostDashboardComponent,
-    SvgCalenderComponent,
-    TopNavbarComponent,
-  ],
-  imports: [
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireStorageModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    SharedModule,
-    SvgFolderModule,
-    SvgTimerModule,
-  ],
-  providers: [PostService],
-  bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    declarations: [AppComponent],
+    imports: [
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireStorageModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        SharedModule,
+        SvgFolderModule,
+        SvgTimerModule,
+        PostListComponent,
+        PostDashboardComponent,
+        SvgCalenderComponent,
+        TopNavbarComponent,
+    ],
+    providers: [PostService],
+    bootstrap: [AppComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

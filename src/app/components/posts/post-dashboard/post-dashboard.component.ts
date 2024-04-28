@@ -3,12 +3,26 @@ import { Component } from "@angular/core";
 
 import { PostService } from "../services/post.service";
 import { Router } from "@angular/router";
+import { MatButton } from "@angular/material/button";
+import { FormsModule } from "@angular/forms";
+import { MatInput } from "@angular/material/input";
+import { MatFormField, MatLabel } from "@angular/material/form-field";
+import { MatExpansionPanelTitle } from "@angular/material/expansion";
 
 @Component({
-  selector: "app-post-dashboard",
-  templateUrl: "./post-dashboard.component.html",
-  styleUrls: ["./post-dashboard.component.scss"],
-  providers: [PostService],
+    selector: "app-post-dashboard",
+    templateUrl: "./post-dashboard.component.html",
+    styleUrls: ["./post-dashboard.component.scss"],
+    providers: [PostService],
+    standalone: true,
+    imports: [
+        MatExpansionPanelTitle,
+        MatFormField,
+        MatInput,
+        FormsModule,
+        MatLabel,
+        MatButton,
+    ],
 })
 export class PostDashboardComponent {
   content: string;

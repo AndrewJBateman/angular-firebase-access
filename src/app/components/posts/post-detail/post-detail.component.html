@@ -2,156 +2,154 @@
   <meta
     name="description"
     content="Post detail page shows the full text of the post. The author can also log in to edit or delete the post"
-  />
-</head>
+    />
+  </head>
 
-<ng-container *ngIf="post">
-  <!--post editing page visible when editing -->
-  <div [hidden]="!editing">
-    <mat-card appearance="outlined" class="post-detail-card">
-      <h1 color="primary">Edit Post</h1>
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Post title"
-          [(ngModel)]="post.title"
-          name="title"
-        />
-      </mat-form-field>
-      <br />
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Post Subtitle"
-          [(ngModel)]="post.subtitle"
-          name="subtitle"
-        />
-      </mat-form-field>
-      <br />
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Image Keyword"
-          [(ngModel)]="post.image"
-          name="image"
-        />
-      </mat-form-field>
-      <br />
-      <br />
-      <mat-form-field>
-        <mat-label
-          >Select Category ({{ post.category }} currently selected)</mat-label
-        >
-        <mat-select
-          [(ngModel)]="post.category"
-          [(value)]="selectedCategory"
-          name="category"
-        >
-          <mat-option value="Dev">Dev (Programming Development)</mat-option>
-          <mat-option value="IT">IT (Information Technology)</mat-option>
-          <mat-option value="Eng">Eng (Engineering)</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <br />
-      <mat-form-field>
-        <textarea
-          matInput
-          placeholder="Post content"
-          [(ngModel)]="post.content"
-          name="content"
-          rows="30"
-        ></textarea>
-      </mat-form-field>
-      <br />
-      <div class="bottom-button-row">
-        <button
-          mat-flat-button
-          color="accent"
-          (click)="updatePost()"
-          aria-label="Update post"
-        >
-          Save
-        </button>
-        <button
-          mat-flat-button
-          color="primary"
-          (click)="editing = false"
-          *ngIf="editing"
-          aria-label="Cancel changes"
-        >
-          Cancel
-        </button>
-      </div>
-    </mat-card>
-  </div>
-
-  <!--post detail page visible when NOT editing -->
-  <div [hidden]="editing">
-    <mat-card appearance="outlined" class="mat-elevation-z1 post-detail-card">
-      <mat-card-header class="detail-card-header">
-        <div
-          mat-card-avatar
-          class="header-image"
-          alt="photo of Andrew Bateman"
-        ></div>
-        <mat-card-title class="post-title">
-          {{ post.title }}
-        </mat-card-title>
-        <mat-card-subtitle class="post-subtitle">
-          {{ post.subtitle }}
-        </mat-card-subtitle>
-      </mat-card-header>
-
-      <mat-card-content>
-        <p class="post-content">{{ post.content }}</p>
-        <span>
-          <a class="credit-date-text">
-            <app-svg-camera></app-svg-camera>
-            {{ post.image }}
-            <!--text only-->
-          </a>
-          <p class="credit-date-text">
-            <app-svg-folder></app-svg-folder>
-            {{ post.category }}
-          </p>
-          <p class="credit-date-text">
-            <app-svg-timer></app-svg-timer>
-            {{ post.published.toDate() | dateConvert }}
-          </p>
-        </span>
-      </mat-card-content>
-      <hr class="horiz-line" />
-
-      <mat-card-actions class="detail-card-actions" align="left">
-        <button
-          mat-raised-button
-          (click)="returnToList()"
-          class="post-button-back"
-          aria-label="Back button"
-        >
-          Back
-        </button>
-        <div>
-          <a
-            mat-raised-button
-            (click)="editing = true"
-            class="post-button-edit"
-            aria-label="Go back to list of posts"
-          >
-            Edit
-          </a>
-        </div>
-        <div>
-          <a
-            mat-raised-button
-            (click)="delete()"
-            class="post-button-delete"
-            aria-label="Delete post"
-          >
-            Delete
-          </a>
-        </div>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-</ng-container>
+  @if (post) {
+    <!--post editing page visible when editing -->
+    <div [hidden]="!editing">
+      <mat-card appearance="outlined" class="post-detail-card">
+        <h1 color="primary">Edit Post</h1>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Post title"
+            [(ngModel)]="post.title"
+            name="title"
+            />
+          </mat-form-field>
+          <br />
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Post Subtitle"
+              [(ngModel)]="post.subtitle"
+              name="subtitle"
+              />
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Image Keyword"
+                [(ngModel)]="post.image"
+                name="image"
+                />
+              </mat-form-field>
+              <br />
+              <br />
+              <mat-form-field>
+                <mat-label
+                  >Select Category ({{ post.category }} currently selected)</mat-label
+                  >
+                  <mat-select
+                    [(ngModel)]="post.category"
+                    [(value)]="selectedCategory"
+                    name="category"
+                    >
+                    <mat-option value="Dev">Dev (Programming Development)</mat-option>
+                    <mat-option value="IT">IT (Information Technology)</mat-option>
+                    <mat-option value="Eng">Eng (Engineering)</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <br />
+                <mat-form-field>
+                  <textarea
+                    matInput
+                    placeholder="Post content"
+                    [(ngModel)]="post.content"
+                    name="content"
+                    rows="30"
+                  ></textarea>
+                </mat-form-field>
+                <br />
+                <div class="bottom-button-row">
+                  <button
+                    mat-flat-button
+                    color="accent"
+                    (click)="updatePost()"
+                    aria-label="Update post"
+                    >
+                    Save
+                  </button>
+                  @if (editing) {
+                    <button
+                      mat-flat-button
+                      color="primary"
+                      (click)="editing = false"
+                      aria-label="Cancel changes"
+                      >
+                      Cancel
+                    </button>
+                  }
+                </div>
+              </mat-card>
+            </div>
+            <!--post detail page visible when NOT editing -->
+            <div [hidden]="editing">
+              <mat-card appearance="outlined" class="mat-elevation-z1 post-detail-card">
+                <mat-card-header class="detail-card-header">
+                  <div
+                    mat-card-avatar
+                    class="header-image"
+                    alt="photo of Andrew Bateman"
+                  ></div>
+                  <mat-card-title class="post-title">
+                    {{ post.title }}
+                  </mat-card-title>
+                  <mat-card-subtitle class="post-subtitle">
+                    {{ post.subtitle }}
+                  </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                  <p class="post-content">{{ post.content }}</p>
+                  <span>
+                    <a class="credit-date-text">
+                      <app-svg-camera></app-svg-camera>
+                      {{ post.image }}
+                      <!--text only-->
+                    </a>
+                    <p class="credit-date-text">
+                      <app-svg-folder></app-svg-folder>
+                      {{ post.category }}
+                    </p>
+                    <p class="credit-date-text">
+                      <app-svg-timer></app-svg-timer>
+                      {{ post.published | dateConvert }}
+                    </p>
+                  </span>
+                </mat-card-content>
+                <hr class="horiz-line" />
+                <mat-card-actions class="detail-card-actions" align="left">
+                  <button
+                    mat-raised-button
+                    (click)="returnToList()"
+                    class="post-button-back"
+                    aria-label="Back button"
+                    >
+                    Back
+                  </button>
+                  <div>
+                    <a
+                      mat-raised-button
+                      (click)="editing = true"
+                      class="post-button-edit"
+                      aria-label="Go back to list of posts"
+                      >
+                      Edit
+                    </a>
+                  </div>
+                  <div>
+                    <a
+                      mat-raised-button
+                      (click)="delete()"
+                      class="post-button-delete"
+                      aria-label="Delete post"
+                      >
+                      Delete
+                    </a>
+                  </div>
+                </mat-card-actions>
+              </mat-card>
+            </div>
+          }

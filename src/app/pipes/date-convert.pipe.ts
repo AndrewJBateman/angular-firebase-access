@@ -5,7 +5,8 @@ import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 
 @Pipe({
-  name: "dateConvert",
+    name: "dateConvert",
+    standalone: true,
 })
 export class DateConvertPipe implements PipeTransform {
   transform(value: any): string {

@@ -15,22 +15,22 @@ import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
 
 @NgModule({
-  declarations: [PostDetailComponent],
-  imports: [
-    CommonModule,
-    PostDetailRoutingModule,
-    SharedModule,
-    PipesModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    SvgFolderModule,
-    SvgCameraModule,
-    SvgTimerModule,
-  ],
-  exports: [MatFormFieldModule, MatInputModule, PostDetailComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [
+        CommonModule,
+        PostDetailRoutingModule,
+        SharedModule,
+        PipesModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        SvgFolderModule,
+        SvgCameraModule,
+        SvgTimerModule,
+        PostDetailComponent,
+    ],
+    exports: [MatFormFieldModule, MatInputModule, PostDetailComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PostDetailModule {}
