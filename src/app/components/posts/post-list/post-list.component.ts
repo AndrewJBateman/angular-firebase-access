@@ -13,20 +13,20 @@ import { SvgCalenderComponent } from "../../svg-calender/svg-calender.component"
 import { MatCard, MatCardContent } from "@angular/material/card";
 
 @Component({
-    selector: "app-post-list",
-    templateUrl: "./post-list.component.html",
-    styleUrls: ["./post-list.component.scss"],
-    standalone: true,
-    imports: [
-        MatCard,
-        MatCardContent,
-        SvgCalenderComponent,
-        SvgFolderComponent,
-        SvgTimerComponent,
-        SlicePipe,
-        DateConvertPipe,
-        ReadTimePipe,
-    ],
+  selector: "app-post-list",
+  templateUrl: "./post-list.component.html",
+  styleUrls: ["./post-list.component.scss"],
+  standalone: true,
+  imports: [
+    MatCard,
+    MatCardContent,
+    SvgCalenderComponent,
+    SvgFolderComponent,
+    SvgTimerComponent,
+    SlicePipe,
+    DateConvertPipe,
+    ReadTimePipe,
+  ],
 })
 export class PostListComponent implements OnInit {
   title = "Posts";

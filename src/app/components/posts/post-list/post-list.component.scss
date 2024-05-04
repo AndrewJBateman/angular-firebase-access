@@ -1,8 +1,3 @@
-// Card styling
-// .mat-mdc-card-image {
-//   flex-shrink: 0;
-// }
-
 .title-style {
   margin: 0 0 4px;
   font-size: 18px;
@@ -12,6 +7,9 @@
   font-size: 14px;
 }
 
+.card-style {
+  max-height: 240px;
+}
 .content-style {
   white-space: pre-wrap;
   margin: 0 0 8px;
@@ -20,9 +18,3 @@
 .small-text {
   font-size: 14px !important;
 }
-
-// .image-div {
-//   position: relative;
-//   text-align: center;
-//   color: white;
-// }

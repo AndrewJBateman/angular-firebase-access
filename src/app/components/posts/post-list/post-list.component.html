@@ -3,30 +3,27 @@
     content="Blog page uses Angular cards to display some technical posts that can be clicked on to show a more detailed page." />
 </head>
 
-<div fxLayout="row wrap">
-  @for (post of posts; track trackByFn($index, post)) {
-  <div style="padding: 5px">
-    <!--mat-card for each post with data-binding from post.ts-->
-    <mat-card appearance="outlined" class="mat-elevation-z1" (click)="onSelectPost(post)">
-      <mat-card-content>
-        <p class="title-style">{{ post.title }}</p>
-        <p class="content-style" style="height: 90px">
-          <span class="subtitle-style">{{ post.subtitle }}:</span>
-          {{ post.content | slice: 0:158 - post.subtitle.length }}...
-        </p>
-        <p>
-          <span class="small-text">
-            <app-svg-calender></app-svg-calender>
-            {{ post.published | dateConvert }}
-            <app-svg-folder></app-svg-folder>
-            {{ post.category }}
-            <app-svg-timer></app-svg-timer>
-            {{ post.content | readTime }} mins
-          </span>
-        </p>
-      </mat-card-content>
-    </mat-card>
-    <!-- </ng-container> -->
-  </div>
-  }
+@for (post of posts; track trackByFn($index, post)) {
+<div style="padding: 5px">
+  <mat-card appearance="outlined" class="mat-elevation-z1 card-style" (click)="onSelectPost(post)">
+    <mat-card-content>
+      <p class="title-style">{{ post.title }}</p>
+      <p class="content-style">
+        <span class="subtitle-style">{{ post.subtitle }}:</span>
+        {{ post.content | slice: 0:300 - post.subtitle.length }}...
+      </p>
+      <p>
+        <span class="small-text">
+          <app-svg-calender></app-svg-calender>
+          {{ post.published | dateConvert }}
+          <app-svg-folder></app-svg-folder>
+          {{ post.category }}
+          <app-svg-timer></app-svg-timer>
+          {{ post.content | readTime }} mins
+        </span>
+      </p>
+    </mat-card-content>
+  </mat-card>
+
 </div>
+}
