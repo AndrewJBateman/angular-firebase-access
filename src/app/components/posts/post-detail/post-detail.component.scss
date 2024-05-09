@@ -32,11 +32,15 @@
   .post-title {
     font-size: 20px !important;
     margin: 0 0 4px !important;
+    font-style: bold;
+    color: #3f51b5;
   }
 
   .post-subtitle {
     font-size: 16px !important;
     margin: 0 !important;
+    font-style: italic;
+    color: #3f51b5;
   }
   .post-content {
     margin: 16px 0 !important;
@@ -52,6 +56,7 @@
   .post-button-back {
     background-color: #0d47a1;
     color: white;
+    margin-right: 16px;
   }
   .post-button-delete {
     color: orangered;
@@ -59,5 +64,6 @@
 
   .post-button-edit {
     color: #0d47a1;
+    margin-right: 16px;
   }
 }
